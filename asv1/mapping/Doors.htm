@@ -1,0 +1,111 @@
+<html><title>Doors</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Doors</h1>
+--Basics<br>
+--Additional Actors<br>
+--Double Doors<br>
+--Button Panels<br>
+--Door properties
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Basics</h1>
+Placing doors is, unfortunately, a complicated business in Ao.  The doors require a number of additional
+actors placed near them to allow the player to cut and seal them with the welding tool.
+
+<br><br><li>In UT2K4 all doors are static meshes.
+
+<br><br><li>To place one, select the mesh you want from the Static Mesh browser, then right click the Add Mover button on the left toolbar.
+There are two basic choices for a door in Ao.  AoSmallDoor and AoStormDoor (a big heavyweight door).  Pick whichever fits
+the description of your door the closest.
+
+<br><br><li>Most doors should be set to <b>TriggerOpenTimedNoCloseIfNearby</b> as their initial state (set this in properties, Object).  These doors will open
+when triggered then close again after sometime.  If someone is standing in the door when it wants to close, then it'll
+wait until they move out of the way.
+
+<br><br><li>Remember, the camera is above the player, so it is best to make doors slide sideways.  Don't put decorative arches or geometry
+over the top of the door, else the player won't be able to see if the door is open or not.
+
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Additional Actors</h1>
+
+<li>There are 3 additional actors that need to be made:
+
+<ul><li>Actor->Keypoint->AoUseCollisionCylinder-><b>AoDoorArea</b> - one of these should be placed, centered around the sealing point of the
+door (i.e. where it meets the wall, or dead in the middle for a double door).  In this area, the player will see the Seal/Cut
+icons and be able to manipulate the door.  Adjust the CollisionRadius to give the player a fair bit of room.  Note, if the
+door is set to <b>bAutoOpen</b>, then coming inside the AoDoorArea will automatically trigger the door.
+<br><br>The AoDoorArea needs to be linked to the door, set the AoDoorArea's Event to match the door's Tag.
+
+<br><br><li>Actor->Keypoint-><b>AoSparkCylinder</b> - two of these need to be placed, one on either side of the door, along the sealing
+point, facing away from it.  These dictate where the sparks should fly out of when the player is sealing the door and in which direction.  You must link these up to the door by matching
+their Event to the door's Tag.  You must also set the CollisionHeight of these and move the AoSparkCylinder so that the cylinder
+runs the entire length of the door's seal, i.e. the whole edge of the door, e.g. for a double door:
+
+<br><br><img src="images/sparkcylinder.jpg">
+
+
+<br><br><li>A double door ends up looking like this:
+
+<br><br><img src="images/doubledoor.jpg">
+
+<br><br>Note the two spark cylinders near the join and the large door area.
+</ul>
+</ul>
+
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Double doors</h1>
+When making double doors, you need to make sure the two movers are synchronized properly.  Here's how you do it.
+
+<br><br><li>Create your two movers and get them moving as you wish.
+
+<br><br><li>Decide on one mover to be the <b>Master</b>. This is the mover to which you should link all the above actors, this is
+the mover you should trigger to make the double door open.
+
+<br><br><li>Bring up the master's properties and look in the ReturnGroup category.  Set bIsLeader to true and put a unique name in
+the ReturnGroup property, e.g. Bob.
+
+<br><br><li>Bring up the other mover's properties and set the same ReturnGroup, (e.g. Bob).  This door should be left as bIsLeader false.
+
+<br><br>That's it, the doors will now be linked.  Remember to attach the spark cylinder and door area to the Master.
+
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Button Panels</h1>
+To make it so the player can open these doors, you can place a button panel nearby.
+
+<br><br><li>You can find these under Actor->Decoration->AoObject->AoUsableObject-><b>AoObjectButtonPanel</b> - simply place one and link it up to
+the door by setting the button panel's Event to match the door's Tag.  When the player uses the button panel, it will trigger the door.
+
+<br><br><li>Additional properties of interest in the button panel:
+
+<br><br><ul><li>Under the AoButtonPanel category, there is <b>bLocked</b>.  If you set this the panel will be locked and only a marine
+with technical skills will be able to unlock it.
+<br><br><li>Under the AoUsableObject category, there is <b>TimeToUse</b>.  This is how long it will take to unlock the panel.  Note: a marine with
+a Hacking Tool will hack this in half the time.
+<br><br><li>Under the AoUsableObject category, there is <b>UseRadius</b> and UseHeight.  These values dictate how close the marine has to be in order to use the button panel.
+</ul>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Door properties</h1>
+<table width=90% cellpadding=10><tr>
+</tr><td valign=top bgcolor=#AAAAAA>SealTime</td><td bgcolor=#AAAAAA>How long it takes to seal the door with a welder.  For each second of seal time, the door takes reduced damage from alien attacks.  This number sets the max seal time.</td>
+</tr><td valign=top bgcolor=#AAAAAA>CurrentSealTime</td><td bgcolor=#AAAAAA>The current amount of seal on the door.  Always make sure this is less than the SealTime property.  For example, a SealTime of 10 and a CurrentSealTime of 5, would mean the door starts 50% sealed.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bBashable</td><td bgcolor=#AAAAAA>Determines if aliens can bash this door down or not.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bShootable</td><td bgcolor=#AAAAAA>Determines if players can shoot this door open or not.</td>
+</tr><td valign=top bgcolor=#AAAAAA>DoorStrength</td><td bgcolor=#AAAAAA>How much damage this door has to take before opening.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bShowsOnScanner</td><td bgcolor=#AAAAAA>Does this mover cause a blip on the scanner when it moves?  This should be true for most doors to keep things consistent.</td>
+</td></tr></table>
+<br><br>
+</body></html>

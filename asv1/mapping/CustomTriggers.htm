@@ -1,0 +1,55 @@
+<html><title>Custom Triggers</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Custom Triggers</h1>
+--AoDispatcher<br>
+--AoRandomTriggerTarget<br>
+--AoInfoTrigger<br>
+--AoPlaySoundTrigger<br>
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoDispatcher</h1>This behaves just like the Dispatcher from UT.  It allows you to set up a series of events, with delays between each.
+It is a simpler alternative to using the AIScripts of UT2k3.  When triggered, it will start going down the list of events.<p>
+
+Properties include:<p>
+<li>OutEvents - the list of events to be triggered out.
+<li>OutDelay - the delay before triggering each event.
+<li>OutChance - the probability of the event firing.  Defaults to 1.0, i.e. guaranteed.
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoRandomTriggerTarget</h1>
+This trigger allows you to randomly change which target actor is triggered for a particular event, so your level isn't always the same.
+You simply fill out the Targets property with a list of events, then when the AoRandomTriggerTarget is triggered, one of these targets
+is randomly picked and triggered.  Could be used, for example, to make 1 of 4 AoAlienSpawners start throwing out Aliens, so the
+player can't predict where they will come from each time they play the game.
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoInfoTrigger</h1>When triggered, this will pop up an information window on the player's screen with some text.<p>
+
+Properties include:<p>
+<li>WindowTitle - text shown on the window's title bar.
+<li>Text, Text2, Text3, Text4 - the text shown in the window, each Text property is one paragraph
+<li>TextColor - the colour of the text, defaults to white.
+<li>WindowWidth, WindowHeight - the size of the window, expressed as a fraction of the screen. E.g 0.5 would be half the screen.
+<li>WindowAlpha - how solid/transparent the window is.  A value of 1.0 would be totally opaque.
+<li>bSmallFont - for long text descriptions, this will make the font size small (the size of the console font).
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoPlaySoundTrigger</h1>When triggered, will play the specified sound.<p>
+
+
+</td></tr></table>
+<br><br>
+
+<br><br>
+</body></html>

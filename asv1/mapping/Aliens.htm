@@ -1,0 +1,83 @@
+<html><title>Aliens</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Aliens</h1>
+--Placing Aliens<br>
+--AoAlienSpawner<br>
+--Alien Nav Spots<br>
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Placing aliens</h1>
+The simplest way to use the aliens, is to just place them in the level.  These aliens will
+automatically go into a hibernating state, where they use up little CPU.  When the player
+comes nearby they will awaken and charge at him, using pathnodeless movement.
+<br><br>
+Feel free to put loads of these aliens on your map.  You can find them under Actor->Pawn->AoGibbingPawn->AoAlienPawnBase-><b>AoAlienPawn</b>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoAlienSpawner</h1>
+With this, you are able to add aliens to the level dynamically and give them special orders.  The key thing
+to remember when using an AoAlienSpawner is <b>CPU</b>.  If too many aliens are active at a given time,
+the player's framerate will drop through the floor.
+<br><br>
+You can find this under Actor->Keypoint-><b>AoAlienSpawner</b>.  Simply place it in the level at the point you wish the aliens to spawn from.
+There are a number of properties you can change to control the spawner.
+<br><br>
+<table width=90% cellpadding=10><tr>
+<td valign=top bgcolor=#AAAAAA>InitialState</td><td bgcolor=#AAAAAA>This decides when the spawner will be active:
+<ul><li>StartSpawningWhenTriggered - the spawner will do nothing until it is triggered, at which point it will start spawning its aliens.
+<li>StartSpawningWhenMissionStart - the spawner will start spawning aliens from the moment the mission starts.
+<li>SpawnOneAlienPerTrigger - each time the spawner is triggered, one alien will be spawned.
+</ul>
+</td>
+</tr><td valign=top bgcolor=#AAAAAA>NumAliens</td><td bgcolor=#AAAAAA>How many aliens will be created from this spawner.</td>
+</tr><td valign=top bgcolor=#AAAAAA>SpawnIntervalTime</td> <td bgcolor=#AAAAAA>Time between each spawn.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bRespawnAliens</td> <td bgcolor=#AAAAAA>If this is set, then aliens created from this spawner will be respawned if they die.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bDontSpawnIfMarinesAreNear</td> <td bgcolor=#AAAAAA>If this is set, aliens won't spawn when a marine is standing nearby (so the player doesn't see aliens coming out of thin air).  Recommend set to True unless you're concealing the spawn point somehow.</td>
+</tr><td valign=top bgcolor=#AAAAAA>NearDistance</td> <td bgcolor=#AAAAAA>The distance for the bDontSpawnIfMarinesAreNear check.</td>
+</tr><td valign=top bgcolor=#AAAAAA>bResetWhenAllAliensSpawned</td> <td bgcolor=#AAAAAA>This is used for spawners that are triggered.  If set, then once all the aliens have been spawned, it will reset and can be triggered again to spawn the aliens again.  Be careful not to spawn vast quantities of aliens with this.</td>
+</tr><td valign=top bgcolor=#AAAAAA>CustomSensingDistance</td> <td bgcolor=#AAAAAA>Aliens will awaken when players come within this range, even through walls.  Lower this if you want, for example, players to see an alien standing still around a corner, only attacking when they walk round or get closer.  By default this number is 768 units (about the screen width).</td>
+</tr><td valign=top bgcolor=#AAAAAA>bAliensSenseWhileMoving</td> <td bgcolor=#AAAAAA>Determines if aliens sense for players while on a MoveTo order.  This can, for example, be set to false to make aliens run along the tops of walls past players to some destination point, then they will start sensing and attack.</td>
+</tr><td valign=top bgcolor=#AAAAAA>AlienOrders</td> <td bgcolor=#AAAAAA>This dictates what the aliens will do once they have spawned.  Options include:
+
+<ul><li><b>AOT_Default</b> - currently the same as AOT_Hibernate
+<br><br><li><b>AOT_Hibernate</b> - the alien will go into the hibernating state (where he saves CPU).  Note: Do not use this if you are going to spawn more than 1 Alien
+from this spawner, as the first Alien will spawn and block the spawn point for the others.
+<br><br><li><b>AOT_SpreadThenHibernate</b> - this state will make the aliens move a short distance from the spawn point before going into hibernation.  This is a good order to use when setting up groups
+of aliens in an area.
+<br><br><li><b>AOT_Roam</b> - a DANGEROUS order to use in vast quantities.  aliens spawning with this state will roam from pathnode to pathnode, constantly eating up CPU.  Make sure you don't have many aliens set to this order.
+<br><br><li><b>AOT_MoveTo</b> - aliens set to this order will move to object with Tag matching the AlienOrderObjectTag.  They will be using up CPU
+while they move, but once they reach the spot they will hibernate.  This order is okay to use so long as you are sure the aliens will be able to reach the target point,
+otherwise they will be constantly eating up CPU.
+<br><br><li><b>AOT_MoveToNearestEnemy</b> - the aliens spawned will run towards the nearest Marine, using pathnoding.  Dangerous if they can't reach them, as they will constantly use up CPU trying.
+</ul>
+</td>
+
+</tr><td valign=top bgcolor=#AAAAAA>bNoUberAliens</td> <td bgcolor=#AAAAAA>This stops the spawner from creating Uber aliens when the players are playing in Uber mode.  Use this in small vents and the like, where a large alien wouldn't fit.</td>
+</tr><td valign=top bgcolor=#AAAAAA>AlienHealthScale</td><td bgcolor=#AAAAAA>This can be used to change the health of aliens that come from this spawner.  For example, you could set this to 0.5 to give all aliens spawned here half health.</td>
+</tr><td valign=top bgcolor=#AAAAAA>AlienDrawScale</td><td bgcolor=#AAAAAA>Changes the size of the aliens spawned here.  Be sure to adjust the radius (see below) too if you're changing the size dramatically.</td>
+</tr><td valign=top bgcolor=#AAAAAA>AlienSpeedScale</td><td bgcolor=#AAAAAA>Changes the move speed of the aliens spawned here.</td>
+</tr><td valign=top bgcolor=#AAAAAA>AlienRadiusScale</td> <td bgcolor=#AAAAAA>This adjust the collision radius of the aliens spawned here.</td>
+</tr>
+</table>
+
+</td></tr></table>
+
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Alien Nav Spots</h1>
+<table width=90% cellpadding=10><tr>
+This can be found under Keypoint -> AoAlienNavSpot.  Since the aliens don't use pathnodes (in the interests of saving CPU cycles, so you can have lots active at once) they sometimes
+need a push in the right direction to get through doors or small vents.  This is where the AoAlienNavSpot comes in.
+Simply place one of these near an opening and point it into the opening.  When the alien touches the navspot, if his enemy is
+in that general direction, he will immediately move 100 units in the direction the nav spot is pointing, thereby getting
+smoothly through the door or into the vent.  HintDistance defaults to 100 units, but you can shorten/length it as appropriate.  You
+can also adjust the collision radius of the AoAlienNavSpot so the alien changes direction at the correct spot.
+</td></tr></table>
+
+<br><br>
+</body></html>

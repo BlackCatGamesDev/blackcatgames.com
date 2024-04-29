@@ -1,0 +1,177 @@
+body {
+	background: #000000 url("images/as.jpg") no-repeat; color: white;
+	font-family: Vera, Verdana, Arial, Helvetica, sans-serif; 
+	margin: 0;
+	padding: 0;
+}
+
+    a:link {color: #23669D; background-color: inherit;}
+    a:visited {color: #23669D; background-color: inherit;}
+    a:hover {color: #88B5F7; background-color: inherit;}
+    a:active {color: #88B5F7; background-color: inherit; text-decoration: overline underline;}
+    a:focus {color: #1E5474; background-color: inherit;}
+
+ ul {
+	list-style-image: url("images/list_style.gif");
+	font-weight: bold;
+	font-size: 0.7em;
+	padding: 12px 0 0 40px;
+	margin: 0;
+}
+
+li {
+	padding-bottom: 5px;
+}
+
+.odd {
+	background-color: #1C2A35;
+}
+
+.italic {
+	font-style: italic;
+}
+
+#menu_asv2 {
+	position: absolute;
+	top: 568px;
+	left: 8px;
+	width: 157px;
+}
+
+#asv2_logotext {
+	font-size: 0.7em;
+	padding: 0 0 0 12px;
+}
+
+#menu_as {
+	position: absolute;
+	top: 276px;
+	left: 8px;
+	width: 157px;
+}
+
+#as_logotext {
+	font-size: 0.7em;
+	padding: 0 0 0 19px;
+}
+
+#swarm_random {
+	position: absolute;
+	top: 640px;
+	left: 8px;
+	width: 157px;
+}
+
+#swarm_random p {
+	padding: 0 5px 0 5px;
+	font-style: italic;
+	text-align: center;
+}
+
+#copyright_notice {
+	padding-top: 20px;
+}
+
+#trademarks {
+	color: #2C2D2C;
+	font-size: 0.6em;
+}
+
+#copyright_notice img {
+	padding-bottom: 5px;
+}
+
+img {
+	border: none;
+}
+
+p {
+	font-size: 0.7em;
+	color: #fff;
+	padding: 0 10px 0 10px;
+}
+
+h2 {
+	padding: 0 0 15px 0;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #fff;
+}
+
+.article_end {
+	text-align: center;
+	padding: 0 0 10px 0;
+}
+
+.headline {
+	float: left;
+	color: #23669D;
+}
+
+.news_date {
+	float: right;
+	font-weight: normal;
+	font-size: 0.6em;
+	font-style: italic;
+	color: #23669D;
+	padding: 3px 0 0 0;
+}
+
+.content {
+	width: 585px;
+	margin-top: 234px;
+	margin-left: 190px;
+}
+
+.thumbnails {
+	text-align: center;
+}
+
+.thumbnails img {
+	margin: 10px 20px 10px 20px;
+}
+
+.content_list ul {
+	padding: 0 45px 0 45px;
+	font-weight: normal;
+}
+
+.content_sublist ul {
+	padding: 0 0 0 45px;
+	font-weight: normal;
+}
+
+.content_list li {
+	padding-bottom: 7px;
+	padding-top: 7px;
+}
+
+.list_headline {
+	font-weight: bold;
+}
+
+.sublist {
+	font-style: italic;
+}
+
+tr {
+	font-size: 0.7em;
+	color: #fff;
+}
+
+th {
+	width: 195px;
+}
+
+td {
+	text-align: center;
+}
+
+table {
+	
+}
+
+#infosubmenu {
+	font-weight: bold;
+	text-align: center;
+}

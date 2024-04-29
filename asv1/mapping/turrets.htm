@@ -1,0 +1,78 @@
+<html><title>Turrets</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Turrets</h1>
+--Basics<br>
+--AoTurretConsole<br>
+--AoTurretTrigger<br>
+--AoTurret<br>
+--Placing 3 turrets<br>
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Basics</h1>
+Turrets have 3 basic components:
+<ul>
+<li>AoTurretConsole - the marine hacks this to activate the turret.
+<li>AoTurretTrigger - this trigger is placed near the turret.  If the turret is activated then stepping in this trigger will make the turret come up out of the floor and start firing.
+<li>AoTurret - the turret itself.
+</ul>
+</td></tr></table>
+
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoTurretConsole</h1>
+<ul>
+<li>This can be found under Actor->Decoration->AoObject->AoUsableObject->AoObjectButtonPanel.  When the player hacks the AoTurretConsole he will be given
+the choice of which AoTurret to activate (the map should have 3 AoTurrets).  Each AoTurretConsole has properties for the 3 turrets:
+<li><b>TriggerTags</b> - the tags for the triggers that are near each turret.
+<li><b>TurretNames</b> - name of the location of each turret, e.g. "Main Corridor" "Storage Room" etc.
+<li><b>TurretPics</b> - a picture of each turret location.  The picture should be 256 by 192 pixels, but stretched to 256 x 256 when imported into UED (it will get displayed at 256 x 192 ingame).
+<li><b>MinTechLevel</b> - (under AoObjectButtonPanel category) the tech level required to hack this console, from 1 to 5.  On maps later in the campaign, set this number higher.  This number is ignored in Single Mission mode.
+</ul>
+</td></tr></table>
+
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoTurretTrigger</h1>
+<ul>
+<li>This can be found under Actor->Trigger->Triggers. This trigger is placed near the turret, stepping in it when the nearby turret is activated will make the turret come up out of the floor.
+<li><b>Event</b> - set to the Tag of the AoTurret itself and any movers that will make it come up out of the floor.
+<li><b>Tag</b> - set to match the TriggerTags in the AoConsole.
+</ul>
+</td></tr></table>
+
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoTurret</h1>
+<ul>
+<li>This can be found under Actor->Decoration->AoObject->AoUsableObject->AoSentryGun.   The turret itself.  It is good to cut out
+an area underground for the turret and place it in there, with a mover underneath (the turret will attach to whatever is beneath it
+when the map is loaded, so place it slightly above the mover).  You can get the AoTurretTrigger to trigger both the turret (which will make it start tracking
+aliens and shooting them) and the mover (to lift up out of the ground).  You can make a mover slide away above the opening too, simply put it in the same ReturnGroup
+as the main mover and set the main mover to bIsLeader = true.
+<li><b>Tag</b> - set to match the Event of the nearby AoTurretTrigger
+<li><b>TurretDelayTime</b> - this sets how long after being triggered before the turret starts firing.  This is to stop it firing before it has come up out of the floor.  Set it to match the movetime of the mover lifting it up.
+
+</ul>
+</td></tr></table>
+
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Placing 3 turrets</h1>
+<ul>
+<li>This diagram shows how 3 turrets should be linked up to the AoTurretConsole:<p>
+<img src="TurretHowTo.png"><br><p>
+Example map here:
+<a href="AO-TurretTest3.rar">AO-TurretTest3.rar</a><br>
+(Requires Swarm Beta 1.25 or above)
+</ul>
+</td></tr></table>
+<br><br>
+</body></html>

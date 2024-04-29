@@ -1,0 +1,42 @@
+<html><title>Custom Equipment</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Custom Equipment</h1>
+--AoEquipRestriction<br>
+--AoCustomMapEquipment<br>
+<br>Available in Alien Swarm 1.3+ only.<br>
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoEquipRestriction</h1>This actor is used to prevent certain equipment being used on a mission.  This can be found under Actor->Info->AoInfo->AoEquipRestriction.  Simply
+place one down in your map and fill in the Restrict array with the classnames of the equipment you wish to restrict.  This
+actor can also be used to allow only a certain quantity of each item.  To do this, fill in the RestrictAmount
+array (this array corresponds to the Restrict classnames array you filled in before).  There are also various restriction messages you can set here. <p>
+
+Note: It's probably a good idea to explain WHY the equipment is restricted in your mission briefing, so players aren't confused
+when they suddenly can't use an item they could use fine in previous missions.<p>
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>AoCustomMapEquipment</h1>
+This allows you to add custom equipment on a per map basis.  It can be found under Actor->Info->AoInfo->AoCustomMapEquipment.  Place one down in the map and set the properties:
+<p>
+CustomEquipment - this array holds custom primary/secondary equipment.<br>
+CustomExtraEquipment - this array holds custom extra equipment (third slot).<p>
+
+<b>Note: These arrays should be populated with the AoGUIStarting class for the equipment, NOT the inventory class name.</b><p>
+
+For example, to make a custom weapon (say a rocket launcher), you would have to do the following:<br>
+<ul><li>Make your custom subclass of AoWeapon, e.g. AoWeaponRocketLauncher.  Fill in its properties and code to behave how you wish (make sure to set the HUDIcon default property to a custom made graphic).<br>
+<li>Then make a subclass of AoGUIStartingEquip called AoGUIStartingRocketLauncher.  In its default properties, set InventoryClass to class'MyPackage.AoWeaponRocketLauncher' and set its FancyTitle and Description appropriately (these are the texts that will appear on the equipment selection screen).<br>
+<li>Put down an AoCustomMapEquipment in your map and set CustomEquipment[0] to MyPackage.AoGUIStartingRocketLauncher.
+</ul><p>
+Now when you start your map, you will see your custom equipment available in the list.<p>
+</td></tr></table>
+
+<br><br>
+</body></html>

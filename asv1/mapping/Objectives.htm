@@ -1,0 +1,94 @@
+<html><title>Objectives</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Objectives</h1>
+--How To Place Objectives<br>
+--Objectives Reference
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>How To Place Objectives</h1>
+Placing objectives in Ao is quite simple.  Each objective is a single actor, you simply
+drop all the objectives you require into your map.  For objectives with
+specific targets, you can bring up their properties and edit them as required.
+
+<ul>
+<li>First of all, place down an <b>AoMissionInfo</b> actor.  This serves as a place to keep all your mission objectives.  This can be found under Actor->Info->AoInfo->AoMissionInfo.
+<br><br>
+<li>Objectives can be found under Actor->Info->AoInfo->AoMissionObjective.  (AoObjectives.u will need to be loaded).  Browse through these and find one you want.
+<br><br>
+<li>Simply add the objectives you require to your level, organising them inside the AoMissionInfo actor, as shown:
+<br><br>
+<img src="images/objectives.jpg">
+<br><br>
+The order in which they are arranged here in the editor is the order in which they will show on the player's objective list ingame.
+<br><br>
+<li>Remember: do not add all of the objectives (like in the pic above), else all the levels will end up the same.  Pick one or two objectives for your map to keep them all unique.
+<br><br>
+<li>You can bring up an objective's properties and set a number of things:
+<ul><li>bOptional - if set, this objective is an optional one.
+<li>ShortName and Description - the text of the objective.
+<li>PointsAwarded - how many points the player gets for finishing this objective.
+<li>ObjectivePic - It also possible to have a picture show up with the objective, by putting the appropriate texture name in the ObjectivePic property.  For example
+pictures that fit here, check AoObjectivePics.utx.
+</ul>
+<br><br>
+</td></tr></table>
+<br><br>
+
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Objectives Reference</h1>
+<br><br>
+<b>EscapeObjective</b>
+<ul><li>All other objectives have to be complete and the live marines have to reach the exit area.  The exit area is a Zone with ZoneTag 'Exit'.
+</ul>
+<b>KillAllAliensObjective</b>
+<ul><li>All aliens have to be destroyed.  Note: This objective is broken at the moment if you have any AoAlienSpawners that constantly respawn aliens (i.e. you can never kill ALL of them).
+</ul>
+<b>KillXAliensObjective</b>
+<ul><li>Complete when the player has killed X aliens.  NumberOfAliensToKill is set in the objective's properties.
+</ul>
+<b>KillXEggsObjective</b>
+<ul><li>Complete when the player has killed X eggs.  NumberOfEggsToDestroy is set in the objective's properties.  The eggs can be
+found under Actor->Decoration->AoObject->AoAlienEgg.
+</ul>
+<b>SurviveTimeLimitObjective</b>
+<ul><li>This objective is for 'last stand' type missions.  The players have to survive for X minutes, after which time the mission will be completed.
+You would typically send waves of aliens at the players constantly, they would have to set up positions and defences, etc, so they last the time.
+In the objective's properties, you can set:
+<ul><li>TimeLimitMinutes - how long you have to survive for.
+<li>bMustBeInExitZone - if set then if players aren't in a zone with ZoneTag 'Exit' when the timelimit hits, they fail.
+<li>bFailIfOtherObjectivesIncomplete - if set then the players fail they don't complete their other required objectives before the time limit runs out.
+</ul></ul>
+<b>TimeLimitObjective</b>
+<ul><li>Players must finish the mission before the set time, else they lose.  Can set TimeLimitMinutes in the objective's properties.
+</ul>
+<b>AccessComputerFilesObjective</b>
+<ul><li>Here the player has to bring a marine with tech skills to a computer and hack it.  You will need to place the computer in the map
+too.  You can find it under Actor->Decoration->AoObject->AoUsableObject-><b>AoObjectFilesComputer</b>.  Note: If you have multiple copies of
+this objective, then match the computer's Event to the objective's Tag for each pair.
+</ul>
+<b>ExploreLocationObjective</b>
+<ul><li>This objective is completed when a player reaches a certain part of the map.  You will need to place a trigger in
+the target area.  Use Actor->Triggers->Trigger-><b>AoExploreLocationTrigger</b>.  Link them up by setting the AoExploreLocationTrigger's
+Event to match the ExploreLocationObjective's Tag.  Adjust the AoExploreLocationTrigger's collision cylinder to cover the desired area.
+</ul>
+<b>AoCountdownObjective</b>
+<ul><li>This objective starts counting down when triggered and is marked as complete when timer reaches 0.  It can play sounds at various times during the countdown to notify players of its status.  This is used for the dropship objective in Ao-Salvage.
+</ul>
+<b>AoEmergencyCountdownObjective</b>
+<ul><li>This objective starts counting down when triggered.  When the timer reaches 0, the level will explode.  This is used for the meltdown objective in Reactor Core.
+</ul>
+<b>AoDummyObjective</b>
+<ul><li>This objective does nothing.  It can be used to insert an extra picture and paragraph of text into the player's objective screen.
+</ul>
+<b>FindMeddeckFiles</b>
+<ul><li>A custom objective used in Ao-Research for unlocking the Uplink mission.  Do not use this in your custom maps.
+</ul>
+<b>EscapeWithScientistObjective</b>
+<ul><li>Not implemented properly, do not use this.
+</ul>
+</td></tr></table>
+</body></html>

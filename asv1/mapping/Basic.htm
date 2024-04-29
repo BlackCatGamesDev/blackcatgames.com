@@ -1,0 +1,56 @@
+<html><title>Basic Principles</title>
+<body>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Basic Principles</h1>
+--Basics<br>
+--PlayerStarts<br>
+</td><td align=right bgcolor=#CCCCCC>
+<a href="Mapping.htm">BACK</a>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>Basics</h1>
+<ul>
+<li>To start making Alien Swarm maps, do the following:<br>
+<ul>
+<li>Go to your UT2004\System folder
+<li>Right click on the UnrealEd.exe and choose Create Shortcut
+<li>Right click on the shortcut and choose properties
+<li>In the Target box, add " -mod=AlienSwarm" to the end
+<li>Double click the shortcut to load UnrealED with the AlienSwarm packages and suchlike loaded.
+</ul>
+
+<br>Maps should be named AO-Mapname.ut2.  
+
+<br><br><li>The camera will always be pointing down from above on the player's marines.  You have to leave space
+above all the rooms for the camera.  If the camera goes inside geometry, then no sound effects will be heard
+and certain areas of the screen will get HOM effects. so always leave room.  The camera is just over 510 units above the marine.  I recommend making the ceiling even higher than this, if it's too close you may experience some network or sound problems.
+
+<br><br><li>It is best to leave space above ALL of your level, not just above the rooms.  This is so the player can easily scroll the camera about.
+I typically carve a huge cube out above the level, with texture Engine.BlackTexture selected, giving this effect:
+
+<br><br>
+<img src="images/hugecube.jpg">
+
+<br><br>
+<img src="images/blacktop.jpg">
+
+<br><br><li>You will also need to place a BlockingVolume in the space above the rooms, so the player can't jump his marines out the
+top of the rooms and run about on top of the walls.  To place a BlockingVolume, position your red builder brush and click the
+Volume button on the left.  Set the BlockingVolume to bClassBlocker=true and add AoMarine to the BlockedClasses list.  This way the volume will
+just block the marines and not the camera.
+
+<br><br><li>Be careful of hanging wires or other decoration that might get in the way of camera, you don't want to obscure the
+player's view too much.  Also, make sure they are non-solid, else the cursor will aim at them if the player clicks there, which
+would cause the marine to shoot up in the air.
+
+</ul>
+</td></tr></table>
+<br><br>
+<table width=90% cellpadding=10><tr><td bgcolor=#CCCCCC>
+<h1>PlayerStarts</h1>
+<ul>
+<li>You should place 8 playerstarts in the map.  By default the players are just allowed 4 marines, but more human players join, this number increases.
+</td></tr></table>
+<br><br>
+</body></html>
