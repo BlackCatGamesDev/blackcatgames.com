@@ -1,0 +1,131 @@
+
+body
+{
+	color: #FFFFFF;
+	font: small "Lucida Grande", "Bitstream Vera Sans", lucida, verdana, helvetica, sans-serif;
+	border-top: 20px solid #ffffff;
+	padding: 0;
+	margin: 0;
+	font-size:80%
+}
+
+#content
+{
+	position: relative;
+	top: 30px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Link colours */
+
+a 	{text-decoration: none; color:#000000; }
+a:hover 	{text-decoration: underline; background: transparent; color: #8C9C86;}
+a:focus 	{background: transparent; color: #000000;}
+a:active	{background: transparent; color: #000000;}
+
+img{border:none;} /* Make sure MSIE doesn't draw a big fat blue border around images */
+
+img.centered
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#thievery:hover, #alienswarm2K4:hover, #alienswarm:hover {background-position: 0 -58px; }
+#thievery span, #alienswarm2K4 span, #alienswarm span { display: none; }
+
+#thievery
+{
+	height:58px;
+	width:172px;
+	background:url("../images/thieverynew.png") no-repeat 0 0;
+}
+
+#alienswarm2K4
+{
+	height:58px;
+	width:172px;
+	background:url("../images/alienswarm2k4.png") no-repeat 0 0;
+}
+
+#alienswarm
+{
+	height:58px;
+	width:172px;
+	background:url("../images/alienswarmnew.png") no-repeat 0 0;
+}
+
+#navlist
+{
+	margin: 0;
+	padding: 0;
+	margin-left: auto;
+  margin-right: auto;
+  width: 546px;
+  height: 58px;
+  list-style: none outside none;
+}
+
+#navcontainer ul
+{
+	margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+#navcontainer li
+{
+	padding: 5px;
+	float: left;
+}
+
+#navcontainer a
+{
+	display: block;
+	width: 172px;
+	height: 58px;
+}
+
+#znavcontainer
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-top: 38px;
+	border-top: 1px solid #000000;
+	z-index: 1;
+}
+
+#znavcontainer ul
+{
+	list-style-type: none;
+	text-align: center;
+	margin-top: -8px;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+}
+
+#znavcontainer li
+{
+	display: inline;
+	text-align: center;
+	margin: 0 5px;
+}
+
+#znavcontainer li a
+{
+	padding: 3px 9px;
+	color: #000000;
+	background-color: #CCCCCC;
+	border: 1px solid #000000;
+	text-decoration: none;
+}
+
+#znavcontainer li a:hover
+{
+	background-color: #FFFFFF;
+}
